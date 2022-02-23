@@ -88,8 +88,7 @@ value: 2
 - To deploy the versionized model, you need to allow version labels for unavailable models so you should use `--allow_version_labels_for_unavailable_models=true` flag. So the docker command looks like the following
 
   ```
-  docker run -p 8501:8501 -d --mount type=bind,source=${pwd}/ML/models/dnn_model,target=/models/dnn_model
-  --mount type=bind,source=${pwd}/ML/models/models.config/,target=/models/models.config -t tensorflow/serving --allow_version_labels_for_unavailable_models=true --model_config_file=/models/models.config
+  docker run -p 8501:8501 -d --mount type=bind,source=%cd%/ML/models/dnn_model,target=/models/dnn_model --mount type=bind,source=%cd%/ML/models.config/,target=/models/models.config -t tensorflow/serving --allow_version_labels_for_unavailable_models=true --model_config_file=/models/models.config
 
   ```
 
